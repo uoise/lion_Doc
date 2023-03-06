@@ -59,4 +59,25 @@ public class ControllerTest {
                 .contains("3번 명언이 등록되었습니다.");
     }
 
+    @Test
+    @DisplayName("step 5: get list")
+    public void t6() {
+        String res = TestRunner.run("""
+                등록
+                안녕 안녕
+                안녕로봇                
+                등록
+                안녕 안녕!
+                안녕로봇                
+                등록
+                안녕 안녕?
+                안녕로봇
+                목록
+                """);
+        assertThat(res)
+                .contains("3 / 안녕 안녕? / 안녕로봇")
+                .contains("2 / 안녕 안녕! / 안녕로봇")
+                .contains("1 / 안녕 안녕 / 안녕로봇");
+    }
+
 }

@@ -6,17 +6,17 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Doc {
-    private final int id;
+    private final long id;
     private final String content;
     private final String author;
 
-    public Doc(int id, String content, String author) {
+    public Doc(long id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

@@ -80,4 +80,52 @@ public class ControllerTest {
                 .contains("1 / 안녕 안녕 / 안녕로봇");
     }
 
+    @Test
+    @DisplayName("step 6: remove")
+    public void t7() {
+        String res = TestRunner.run("""
+                등록
+                안녕 안녕
+                안녕로봇                
+                등록
+                안녕 안녕!
+                안녕로봇                
+                등록
+                안녕 안녕?
+                안녕로봇
+                삭제?id=1 
+                """);
+        assertThat(res)
+                .contains("1번 명언이 삭제되었습니다.");
+    }
+
+    @Test
+    @DisplayName("step 7: exist")
+    public void t8() {
+        String res = TestRunner.run("""
+                등록
+                안녕 안녕
+                안녕로봇                
+                삭제?id=2 
+                """);
+        assertThat(res)
+                .contains("2번 명언은 존재하지 않습니다.");
+    }
+
+    @Test
+    @DisplayName("step 8: update")
+    public void t9() {
+        String res = TestRunner.run("""
+                등록
+                안녕 안녕
+                안녕로봇                
+                수정?id=1
+                아아아안녕
+                안녕고물
+                목록
+                """);
+        assertThat(res)
+                .contains("1 / 아아아안녕 / 안녕고물");
+    }
+
 }

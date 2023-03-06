@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class InputContainer {
     private final Scanner sc;
 
-    public InputContainer() {
-        sc = new Scanner(System.in);
+    public InputContainer(Scanner sc) {
+        this.sc = sc;
     }
 
     public String nextLine() {

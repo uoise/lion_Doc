@@ -12,4 +12,8 @@ public class InputContainer {
     public String nextLine() {
         return sc.nextLine().trim();
     }
+
+    public String[] getCmds() {
+        return sc.nextLine().trim().split("[/?&=]");
+    }
 }
